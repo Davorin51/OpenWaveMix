@@ -1,29 +1,28 @@
-# Import this milestone to GitHub
+# GitHub development checkout
 
-The prepared project is on `feat/device-monitoring`. No change was pushed to
-main. The connected GitHub interface could inspect repositories but could not
-create the missing target repository.
-
-Create an **empty** `Davorin51/OpenWaveMix` repository in GitHub, choosing the
-visibility you want, without adding README/license files. If working from the
-provided source ZIP, initialize a local feature branch:
+The project is published at https://github.com/Davorin51/OpenWaveMix.
+The current default development branch is `development`; main has not been created
+or modified. The initial milestone is published for review and continued work.
 
 ```shell
-git init -b feat/device-monitoring
-git add .
-git commit -m "Add researched audio discovery and metering foundation"
-git remote add origin https://github.com/Davorin51/OpenWaveMix.git
-git push -u origin feat/device-monitoring
+git clone --branch development https://github.com/Davorin51/OpenWaveMix.git
+cd OpenWaveMix
+python -m venv .venv
+# Activate the environment, then:
+python -m pip install -e ".[dev]"
+pytest
 ```
 
-If using the original committed checkout or restoring the included history
-bundle, skip init/add/commit and add only the remote and feature-branch push.
-The optional `OpenWaveMix-history.bundle` in the download preserves the focused
-local commits; extract it elsewhere and run `git clone OpenWaveMix-history.bundle
-OpenWaveMix-with-history` to reconstruct that checkout. Do not commit the bundle.
+Create a focused feature branch for subsequent changes and open a PR into
+`development`. Establishing main and merging a reviewed release into it remain
+separate actions requiring explicit approval.
 
-If the target already has a main branch, fetch and review it first, preserve its
-working files and prepare a compatible feature branch/PR. Do not force-push over
-unseen content or merge to main without explicit approval. For a brand-new empty
-remote, the first pushed branch may become its default; establishing main and
-merging this milestone is a separate reviewed action.
+The original downloadable source snapshot used the local branch
+`feat/device-monitoring`. Its optional history bundle preserves those local
+commits. The GitHub import preserves the same milestone content in focused
+commits following an initial repository bootstrap commit. Commit IDs differ
+because the parent history differs.
+
+Do not force-push over unseen remote changes or commit the optional history
+bundle to the repository. See validation.md for the recorded local checks and
+hardware limitations.

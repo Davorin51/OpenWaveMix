@@ -28,14 +28,23 @@ No callback/round-trip latency, CPU, memory or underrun benchmark is claimed.
 The stream has no playback or Python callback in this milestone. See testing.md
 for interpreting exposed timing and overflow fields and the hardware protocol.
 
-GitHub inspection returned 404 for Davorin51/OpenWaveMix, and the accessible
-repository inventory did not contain it. No remote repository was created, no
-branch was pushed, and no PR/hosted CI run exists. Work is committed locally on
-feat/device-monitoring for review/import; main was not modified.
+During the initial local validation, GitHub inspection returned 404 for
+Davorin51/OpenWaveMix; publication had not yet occurred. The original local
+checkout used feat/device-monitoring. Main was not modified.
 
-Packaging smoke-test detail: the first isolated install intentionally used
+Packaging smoke-test detail: the first isolated install used
 `--no-deps` in an empty venv; importing the CLI then failed because NumPy was
 absent. Installing the wheel with its declared runtime dependencies resolved
 that failure and the module help command succeeded. This does not require
 PortAudio because backend loading is lazy. The host's native PortAudio package
 could not be installed from the available system package environment.
+
+## GitHub publication — 2026-10-27
+
+The repository was subsequently created and the milestone imported on
+`development`, the default development branch. No main branch was created or
+modified. Remote commit `87a8f3759381a4ca4a9cbff540840a2539d999a2`
+has tree `09bc89360bdb1956cb936faf7f9c737d9c5904f8`, matching the
+complete tested local milestone tree exactly. This documentation update records
+publication without changing the audio implementation. Hosted CI is tracked
+in the repository Actions tab; the earlier table records local validation only.
