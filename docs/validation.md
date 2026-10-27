@@ -32,3 +32,10 @@ GitHub inspection returned 404 for Davorin51/OpenWaveMix, and the accessible
 repository inventory did not contain it. No remote repository was created, no
 branch was pushed, and no PR/hosted CI run exists. Work is committed locally on
 feat/device-monitoring for review/import; main was not modified.
+
+Packaging smoke-test detail: the first isolated install intentionally used
+`--no-deps` in an empty venv; importing the CLI then failed because NumPy was
+absent. Installing the wheel with its declared runtime dependencies resolved
+that failure and the module help command succeeded. This does not require
+PortAudio because backend loading is lazy. The host's native PortAudio package
+could not be installed from the available system package environment.
